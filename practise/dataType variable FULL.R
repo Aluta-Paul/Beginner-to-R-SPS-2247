@@ -85,10 +85,34 @@ print(m)
 w.2 = matrix(c(12L,1L,10L,6L,23L,3L,4L,15L), nrow = 4,ncol =2, byrow = F)
 print(w.2)
 
+#ADDING MATRICES
+vector1 <- c(1,2,3)
+vector2 <- c(3,4,5,6,7,8)
+# Take these vectors as input to the array.
+array1 <- array(c(vector1,vector2),dim = c(3,3,2))
+
+vector3 <- c(3,2,1)
+vector4 <- c(8,7,6,5,4,3)
+array2 <- array(c(vector1,vector2),dim = c(3,3,2))
+
+# create matrices from these arrays.
+matrix1 <- array1[,,2]
+matrix2 <- array2[,,2]
+# Add the matrices
+result <- matrix1+matrix2
+matrix1
+matrix2
+print(result)
 
 #4 @ARRAYS
 #just like matrices
-#BUT... allows for many dimension
+
+# ###--Array_NAME <- array(data, dim = (row_Size, column_Size, matrices, dimnames)
+
+#-***  row_Size describes the number of row elements that an array can store.---
+#****column_Size – Number of column elements that can be stored in an array
+#***** Used to change the default names of rows and columns to the user’s preference.
+
 #use:;:
 #Business intelligence and data analysis ( product, region, time)
 #example2 Time-series data often { trends, patterns, and changes over time}
@@ -96,7 +120,31 @@ print(w.2)
 a <- array(c('green',"yellow","pink","green","red",'yellow'),dim = c(3,3,4))
 #it's like a 3*3 matrix done TWICE
 print(a)
+
+#EXAMPLE2 
+vector1 <- c(2,9,3)
+vector2 <- c(10,16,17,13,11,15)
  
+result <- array(c(vector1,vector2),dim = c(3,3,2))
+print(result)
+
+# Create two vectors of different lengths
+vector1 <- c(2,9,6)
+vector2 <- c(10,15,13,16,11,12)
+column.names <- c("COL1","COL2","COL3")
+row.names <- c("ROW1","ROW2","ROW3")
+matrix.names <- c("Matrix1","Matrix2")
+
+result <- array(c(vector1,vector2),dim = c(3,3,2),dimnames = list(row.names,column.names,
+                                                                  matrix.names))
+print(result)
+
+# Print the third row of the second matrix of the array
+print(result[3,,2])
+# Print the element in the 1st row and 3rd column of the 1st matrix.
+print(result[1,3,1])
+# Print the 2nd Matrix.
+print(result[,,2])
 
 #EXTRAS
 #One dimension looks like
@@ -140,6 +188,8 @@ df <- data.frame( #arranges thing as COLUMN
 df
 # ACCESSING COLUMNS INFO use "$"
 df$Age
+#printing the first 2 COLUMN
+df[,c("Name","Age")]
 # or instead you can
 df[,'Age']
 #ADDING A NEW COLUMN
@@ -158,6 +208,42 @@ BMI <- data.frame(
     age = c(15,19,21)
 )
 print(BMI)
+
+#example
+#Author DataFlair
+int_vec <- c(1,2,3) 
+char_vec <- c("a", "b", "c")
+bool_vec <- c(TRUE, TRUE, FALSE)
+data_frame <- data.frame(int_vec, char_vec, 
+                         bool_vec)
+print(data_frame)
+
+#PRINTIN "x" NO OF COLUMNS
+df2 <- data.frame(
+  
+  student_name = c("A", "B", "C", "D", "E"),
+  
+  birth_date = c('1988-01-14', '1998-10-02', '2008-12-31', '2004-06-15', '1997-05-25')
+  
+)
+
+print("Dataframe:")         #prints in a unique way
+
+print(df2)
+
+x <- top_n(df,2,birth_date) #for this to run you must load the necessary library
+#install.packages("tidyr")
+#library(tidyr)
+
+#print(x)
+#ALTERNATIVE
+# Using head() function to select the first 10 rows
+
+head_rows <- head(df2, 3) #we print the first 3 ELEMENTS
+
+print("Output using head() function:")
+
+print(head_rows)
 
 
 #NAMING VARIABLES

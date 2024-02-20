@@ -1,6 +1,9 @@
 
 # my first program in R programming
 
+
+#“control + shift + C” to comment or uncomment the selected lines.
+
  x = 13
  print(x)
  print(class(x))
